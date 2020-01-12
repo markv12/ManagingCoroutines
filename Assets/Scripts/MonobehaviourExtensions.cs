@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-public static class MonobehaviourExtensions {
+public static class MonoBehaviourExtensions {
     public static void EnsureCoroutineStopped(this MonoBehaviour value, ref Coroutine routine) {
         if (routine != null) {
             value.StopCoroutine(routine);
@@ -18,8 +18,8 @@ public static class MonobehaviourExtensions {
         float progress = 0;
         while (progress <= 1) {
             changeFunction(progress);
-            progress = elapsedTime / duration;
             elapsedTime += Time.unscaledDeltaTime;
+            progress = elapsedTime / duration;
             yield return null;
         }
         changeFunction(1);
